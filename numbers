@@ -1,0 +1,23 @@
+first_unique_numbers = set([int(x) for x in input().split()])
+second_unique_numbers = set([int(e) for e in input().split()])
+is_subset = False
+
+for i in range(int(input())):
+    line = input().split()
+    command = line[0] + ' ' + line[1]
+    numbers = [int(y) for y in line[2:]]
+
+    if command == "Add First":
+        first_unique_numbers.update(numbers)
+    elif command == "Add Second":
+        second_unique_numbers.update(numbers)
+    elif command == "Remove First":
+        first_unique_numbers.difference_update(numbers)
+    elif command == "Remove Second":
+        second_unique_numbers.difference_update(numbers)
+    elif command == "Check Subset":
+        print(first_unique_numbers.issubset(second_unique_numbers) or
+              second_unique_numbers.issubset(first_unique_numbers))
+
+print(*sorted(first_unique_numbers), sep=", ")
+print(*sorted(second_unique_numbers), sep=", ")
