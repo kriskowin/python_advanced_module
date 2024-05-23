@@ -1,0 +1,12 @@
+lines = int(input())
+matrix = []
+for line in range(lines):
+    column_data = []
+    current_line = input().split(", ")
+    for element in current_line:
+        if int(element) % 2 == 0:
+            column_data.append(int(element))
+    matrix.append(column_data)
+
+print(matrix)
+
