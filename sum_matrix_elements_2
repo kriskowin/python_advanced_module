@@ -1,0 +1,18 @@
+data = input().split(", ")
+rows = data[0]
+cols = data[1]
+matrix = []
+total = 0
+
+for _ in range(int(rows)):
+    data_rows = input().split(", ")
+    row_data = []
+    
+    for i in range(len(data_rows)):
+        current_element = int(data_rows[i])
+        total += current_element
+        row_data.append(int(data_rows[i]))
+    matrix.append(row_data)
+    
+print(total)
+print(matrix)
