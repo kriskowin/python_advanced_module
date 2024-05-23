@@ -1,0 +1,15 @@
+row, column = input().split(", ")
+matrix = []
+total = 0
+
+for r in range(int(row)):
+    data_row = input().split(", ")
+    row_data = []
+    for c in range(len(data_row)):
+        current_element = int(data_row[c])
+        total += current_element
+        row_data.append((int(data_row[c])))
+    matrix.append(row_data)
+
+print(total)
+print(matrix)
