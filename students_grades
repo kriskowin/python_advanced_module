@@ -1,0 +1,15 @@
+grades = int(input())
+students_with_grades = {}
+
+for index in range(grades):
+    # noinspection PyRedeclaration
+    name, grade = input().split()
+    grade = float(grade)
+    if name not in students_with_grades:
+        students_with_grades[name] = []
+        students_with_grades[name].append(grade)
+    else:
+        students_with_grades[name].append(grade)
+
+for key, value in students_with_grades.items():
+    print(f"{key} -> {[float(x) for x in value]} (avg: {sum(value) / len(value):.2f})")
