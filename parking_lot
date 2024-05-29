@@ -1,0 +1,15 @@
+number_of_cars = int(input())
+cars = []
+for current_car in range(number_of_cars):
+    direction, car_number = input().split(", ")
+    if direction == "IN":
+        cars.append(car_number)
+    elif direction == "OUT":
+        if car_number in cars:
+            cars.remove(car_number)
+if cars:
+    for i in cars:
+        print(i)
+
+else:
+    print("Parking Lot is Empty")
