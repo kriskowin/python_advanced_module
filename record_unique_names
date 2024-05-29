@@ -1,0 +1,14 @@
+shuffles = int(input())
+names = set()
+for i in range(shuffles):
+    names.add(input())
+
+for name in names:
+    print(name)
+
+# n = int(input())
+# unique_names = set()
+# for i in range(n):
+#     unique_names.add(input())
+# for person in unique_names:
+#     print(person)
