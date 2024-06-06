@@ -1,0 +1,9 @@
+lines = int(input())
+matrix = []
+
+for i in range(lines):
+    current_line = input().split(", ")
+    for el in current_line:
+        matrix.append(int(el))
+
+print(matrix)
