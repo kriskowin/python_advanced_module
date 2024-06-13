@@ -1,0 +1,50 @@
+# rows_and_cols = [int(x) for x in input().split(", ")]
+# rows = rows_and_cols[0]
+# cols = rows_and_cols[1]
+# matrix = []
+# int_matrix = []
+# int_elements = []
+# counter = 0
+# shuffles = 0
+#
+# for _ in range(rows):
+#     elements = [int(x) for x in input().split(", ")]
+#     matrix.append(elements)
+# for j in range(len(matrix)):
+#     for i in range(len(matrix[j])):
+#         int_matrix.append(matrix[j][i])
+#
+# for maximum in int_matrix:
+#     counter += max(int_matrix)
+#     int_elements.append(max(int_matrix))
+#     shuffles += 1
+#     int_matrix.remove(max(int_matrix))
+#     if shuffles == 4:
+#         print([int(y) for y in int_elements])
+#         print(counter)
+
+
+rows_and_cols = [int(x) for x in input().split(", ")]
+rows = rows_and_cols[0]
+cols = rows_and_cols[1]
+matrix = []
+max_sums = []
+final_max_sums = []
+index = 0
+
+for _ in range(rows):
+    elements = [int(x) for x in input().split(", ")]
+    matrix.append(elements)
+
+for i in range(rows):
+    for y in range(2):
+        max_sums.append(max(matrix[i]))
+        matrix[i].remove(max(matrix[i]))
+while len(max_sums) >= 5:
+    max_sums.remove(min(max_sums))
+
+for number in range(2):
+    print(max_sums[index], max_sums[index+1])
+    index += 2
+
+print(sum(max_sums))
