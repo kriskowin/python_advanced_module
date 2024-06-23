@@ -1,15 +1,19 @@
-number_of_cars = int(input())
-cars = []
-for current_car in range(number_of_cars):
-    direction, car_number = input().split(", ")
-    if direction == "IN":
-        cars.append(car_number)
-    elif direction == "OUT":
-        if car_number in cars:
-            cars.remove(car_number)
-if cars:
-    for i in cars:
-        print(i)
+lines = int(input())
+parking_lot = []
 
-else:
+for car in range(lines):
+
+    command = input().split(", ")
+    action = command[0]
+    number = command[1]
+
+    if action == "IN":
+        if number not in parking_lot:
+            parking_lot.append(number)
+    elif action == "OUT":
+        if number in parking_lot:
+            parking_lot.remove(number)
+for car in parking_lot:
+    print(car)
+if not parking_lot:
     print("Parking Lot is Empty")
