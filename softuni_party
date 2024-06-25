@@ -1,0 +1,26 @@
+vip_guests = []
+regular_guests = []
+lines = int(input())
+
+for line in range(lines):
+    guest = input()
+    if guest[0].isdigit():
+        vip_guests.append(guest)
+    else:
+        regular_guests.append(guest)
+
+guests = []
+guests.extend(vip_guests)
+guests.extend(regular_guests)
+
+while True:
+    command = input()
+    if command == "END":
+        break
+
+    if command in guests:
+        guests.remove(command)
+
+print(len(guests))
+for guest in guests:
+    print(guest)
