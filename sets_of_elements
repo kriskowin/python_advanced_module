@@ -1,0 +1,13 @@
+n_elements = set()
+m_elements = set()
+n, m = [int(x) for x in input().split()]
+
+for n_shuffles in range(n):
+    n_elements.add(int(input()))
+
+for m_shuffles in range(m):
+    m_elements.add(int(input()))
+
+result = n_elements.intersection(m_elements)
+for data in result:
+    print(data)
