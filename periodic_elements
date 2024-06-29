@@ -1,0 +1,8 @@
+chemical_elements = set()
+lines = int(input())
+for _ in range(lines):
+    elements = [el for el in input().split()]
+    chemical_elements.update(elements)
+
+for element in chemical_elements:
+    print(element)
