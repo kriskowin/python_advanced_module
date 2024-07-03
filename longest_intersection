@@ -1,0 +1,35 @@
+def find_longest_intersection(n, ranges):
+    longest_intersection = set()
+
+    for range_pair in ranges:
+        # Parse the range pair
+        first_range, second_range = range_pair.split('-')
+        first_start, first_end = map(int, first_range.split(','))
+        second_start, second_end = map(int, second_range.split(','))
+
+        # Create sets for the two ranges
+        first_set = set(range(first_start, first_end + 1))
+        second_set = set(range(second_start, second_end + 1))
+
+        # Find the intersection of the two sets
+        intersection = first_set & second_set
+
+        # Check if this intersection is the longest found so far
+        if len(intersection) > len(longest_intersection):
+            longest_intersection = intersection
+
+    # Format the output
+    longest_intersection_list = sorted(longest_intersection)
+    longest_intersection_str = ', '.join(map(str, longest_intersection_list))
+
+    # Print the result
+    print(f"Longest intersection is [{longest_intersection_str}] with length {len(longest_intersection)}")
+
+
+# Example usage
+n = int(input())
+ranges = [
+    input()
+]
+
+find_longest_intersection(n, ranges)
