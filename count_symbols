@@ -1,0 +1,9 @@
+text = input()
+symbols = []
+
+for letter in text:
+    symbols.append(letter)
+
+for symbol in symbols:
+    # symbols.sort()
+    print(f"{symbol}: {symbols.count(symbol)} time/s")
