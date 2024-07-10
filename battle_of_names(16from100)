@@ -1,0 +1,22 @@
+from collections import deque
+lines = int(input())
+name_sum = 0
+names_list = []
+names_sum = []
+names_deque = deque()
+
+for name in range(lines):
+    names_list.append(input())
+
+for word in names_list:
+    for letter in word:
+        name_sum += ord(letter)
+    names_sum.append(name_sum)
+    name_sum = 0
+
+for row in range(len(names_sum)):
+    divisor = 1
+    names_deque.appendleft(names_sum[row])
+    names_deque[row] = names_deque[row] // divisor
+    divisor += 1
+print(*names_deque)
