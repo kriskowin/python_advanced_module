@@ -1,0 +1,36 @@
+size = int(input())
+matrix = []
+primary_diagonal = []
+secondary_diagonal = []
+
+for all_matrix in range(size):
+    matrix += ([x for x in input().split(", ")])
+
+if int(matrix[0]) + int(matrix[4]) + int(matrix[8]) > int(matrix[2]) + int(matrix[4]) + int(matrix[6]):
+    primary_diagonal = int(matrix[0]) + int(matrix[4]) + int(matrix[8])
+    secondary_diagonal = int(matrix[2]) + int(matrix[4]) + int(matrix[6])
+
+    primary_first_number = int(matrix[2])
+    primary_second_number = int(matrix[4])
+    primary_third_number = int(matrix[6])
+
+    secondary_first_number = int(matrix[0])
+    secondary_second_number = int(matrix[4])
+    secondary_third_number = int(matrix[8])
+
+else:
+    primary_diagonal = int(matrix[2]) + int(matrix[4]) + int(matrix[6])
+    secondary_diagonal = int(matrix[0]) + int(matrix[4]) + int(matrix[8])
+
+    primary_first_number = int(matrix[0])
+    primary_second_number = int(matrix[4])
+    primary_third_number = int(matrix[8])
+
+    secondary_first_number = int(matrix[2])
+    secondary_second_number = int(matrix[4])
+    secondary_third_number = int(matrix[6])
+
+print(f"Primary diagonal: {primary_first_number}, {primary_second_number}, "
+      f"{primary_third_number}. Sum: {primary_diagonal}")
+print(f"Secondary diagonal: {secondary_first_number}, {secondary_second_number}, "
+      f"{secondary_third_number}. Sum: {secondary_diagonal}")
