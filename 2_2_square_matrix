@@ -1,0 +1,27 @@
+def read_matrix():
+    rows, cols = map(int, input().split())
+    matrix = []
+    for _ in range(rows):
+        row = input().split()
+        matrix.append(row)
+    return matrix, rows, cols
+
+def count_identical_2x2_squares(matrix, rows, cols):
+    count = 0
+
+    for i in range(rows - 1):
+        for j in range(cols - 1):
+            if (matrix[i][j] == matrix[i][j + 1] and
+                matrix[i][j] == matrix[i + 1][j] and
+                matrix[i][j] == matrix[i + 1][j + 1]):
+                count += 1
+
+    return count
+
+def main():
+    matrix, rows, cols = read_matrix()
+    result = count_identical_2x2_squares(matrix, rows, cols)
+    print(result)
+
+if __name__ == "__main__":
+    main()
