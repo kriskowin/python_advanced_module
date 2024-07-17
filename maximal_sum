@@ -1,0 +1,37 @@
+def read_matrix():
+    rows, cols = map(int, input().split())
+    matrix = []
+    for _ in range(rows):
+        row = list(map(int, input().split()))
+        matrix.append(row)
+    return matrix, rows, cols
+
+def find_max_3x3_submatrix(matrix, rows, cols):
+    max_sum = float('-inf')
+    best_row, best_col = 0, 0
+
+    for i in range(rows - 2):
+        for j in range(cols - 2):
+            current_sum = (
+                matrix[i][j] + matrix[i][j + 1] + matrix[i][j + 2] +
+                matrix[i + 1][j] + matrix[i + 1][j + 1] + matrix[i + 1][j + 2] +
+                matrix[i + 2][j] + matrix[i + 2][j + 1] + matrix[i + 2][j + 2]
+            )
+            if current_sum > max_sum:
+                max_sum = current_sum
+                best_row, best_col = i, j
+
+    return best_row, best_col, max_sum
+
+def print_submatrix(matrix, best_row, best_col):
+    for i in range(best_row, best_row + 3):
+        print(' '.join(map(str, matrix[i][best_col:best_col + 3])))
+
+def main():
+    matrix, rows, cols = read_matrix()
+    best_row, best_col, max_sum = find_max_3x3_submatrix(matrix, rows, cols)
+    print(f"Sum = {max_sum}")
+    print_submatrix(matrix, best_row, best_col)
+
+if __name__ == "__main__":
+    main()
